@@ -136,11 +136,11 @@ function GlowOrb({ className = "" }: { className?: string }) {
 
 export default function GuyproGamingLandingPage() {
   return (
-    <div className="min-h-screen bg-[#050816] text-white overflow-x-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <GlowOrb className="top-[-80px] left-[-80px] h-64 w-64 bg-blue-500" />
-        <GlowOrb className="top-[180px] right-[-60px] h-72 w-72 bg-fuchsia-500" />
-        <GlowOrb className="bottom-[80px] left-[10%] h-72 w-72 bg-cyan-400" />
+    <div className="relative min-h-screen w-full max-w-[100vw] overflow-hidden bg-[#050816] text-white">
+      <div className="absolute inset-0 max-w-[100vw] overflow-hidden pointer-events-none">
+  <GlowOrb className="top-[-80px] left-[-40px] h-52 w-52 md:left-[-80px] md:h-64 md:w-64 bg-blue-500" />
+  <GlowOrb className="top-[180px] right-[-30px] h-52 w-52 md:right-[-60px] md:h-72 md:w-72 bg-fuchsia-500" />
+  <GlowOrb className="bottom-[80px] left-[10%] h-56 w-56 md:h-72 md:w-72 bg-cyan-400" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_30%),radial-gradient(circle_at_center,rgba(217,70,239,0.10),transparent_24%),radial-gradient(circle_at_bottom,rgba(34,211,238,0.10),transparent_24%)]" />
       </div>
 
@@ -169,7 +169,7 @@ export default function GuyproGamingLandingPage() {
         </div>
       </header>
 
-      <main className="relative">
+      <main className="relative w-full max-w-[100vw] overflow-hidden">
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
