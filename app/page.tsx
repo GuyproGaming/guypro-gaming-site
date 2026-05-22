@@ -212,10 +212,21 @@ export default function GuyproGamingLandingPage() {
     Télécharger l'application
   </Button>
 </a>
-                <Button size="lg" variant="outline" className="rounded-2xl border-white/15 bg-white/5 hover:bg-white/10 text-white text-base px-6 py-6">
-                  <PlayCircle className="mr-2 h-5 w-5" />
-                  Voir les fonctionnalités
-                </Button>
+                <a
+  href="https://youtu.be/tUwcihvrh0M?si=QYSnYAMljdVviTxJ"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full sm:w-auto"
+>
+  <Button
+    size="lg"
+    variant="outline"
+    className="w-full rounded-2xl border-white/15 bg-white/5 hover:bg-white/10 text-white text-base px-6 py-6"
+  >
+    <PlayCircle className="mr-2 h-5 w-5" />
+    Voir les fonctionnalités
+  </Button>
+</a>
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
