@@ -514,7 +514,7 @@ export default function GuyproGamingLandingPage() {
   </Button>
 </a>
 
-<a href="/guypro-gaming.apk">
+<a href="/guypro-gaming-v1.0.2.apk">
   <Button
     size="lg"
     variant="outline"
