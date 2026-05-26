@@ -10,7 +10,6 @@ import {
   MessageCircle,
   Bell,
   Crown,
-  ChevronRight,
   CheckCircle2,
   Gamepad2,
   Library,
@@ -21,8 +20,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.guypro.gaming.guypro_gaming";
-
-const APK_URL = "#";
 
 const appShots = [
   {
@@ -167,7 +164,12 @@ export default function GuyproGamingLandingPage() {
             <a href="#securite" className="hover:text-white transition-colors">Sécurité</a>
           </nav>
 
-          <a href="#download" className="hidden sm:inline-flex shrink-0">
+          <a
+  href={PLAY_STORE_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hidden sm:inline-flex shrink-0"
+>
   <Button className="rounded-2xl bg-white text-slate-950 hover:bg-slate-200 font-semibold">
     Télécharger l'app
   </Button>
@@ -203,8 +205,13 @@ export default function GuyproGamingLandingPage() {
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a href="#download" className="w-full sm:w-auto">
-                 <Button
+                <a
+  href={PLAY_STORE_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full sm:w-auto"
+>
+  <Button
     size="lg"
     className="w-full rounded-2xl bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-bold text-base px-6 py-6"
   >
@@ -511,17 +518,6 @@ export default function GuyproGamingLandingPage() {
   >
     <Download className="mr-2 h-5 w-5" />
     Télécharger sur Google Play
-  </Button>
-</a>
-
-<a href="/guypro-gaming-v1.0.2.apk">
-  <Button
-    size="lg"
-    variant="outline"
-    className="w-full rounded-2xl border-white/15 bg-white/5 hover:bg-white/10 text-white px-7 py-6"
-  >
-    <ChevronRight className="mr-2 h-5 w-5" />
-    Télécharger l'APK
   </Button>
 </a>
             </div>
