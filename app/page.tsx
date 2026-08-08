@@ -230,7 +230,7 @@ export default function GuyproGamingLandingPage() {
 
       <main className="relative w-full max-w-[100vw] overflow-hidden">
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-16 md:pb-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -255,12 +255,12 @@ export default function GuyproGamingLandingPage() {
                 suivre les nouveautés et échanger avec une communauté active autour du gaming.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <div className="mt-8">
                 <a
   href={PLAY_STORE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="w-full sm:w-auto"
+  className="inline-flex w-full sm:w-auto"
 >
   <Button
     size="lg"
@@ -270,28 +270,31 @@ export default function GuyproGamingLandingPage() {
     Télécharger l'application
   </Button>
 </a>
-                <a
+              </div>
+
+              <a
   href={YOUTUBE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="group flex w-full items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-2 pr-4 transition-colors hover:bg-white/10 sm:w-auto"
+  className="group relative mt-5 block aspect-video w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
 >
-  <span className="relative h-14 w-24 shrink-0 overflow-hidden rounded-xl bg-black/40">
-    <img
-      src={YOUTUBE_THUMBNAIL_URL}
-      alt="Aperçu vidéo Guypro Gaming"
-      className="h-full w-full object-cover"
-    />
-    <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
-      <PlayCircle className="h-7 w-7 text-white drop-shadow" />
+  <img
+    src={YOUTUBE_THUMBNAIL_URL}
+    alt="Aperçu vidéo Guypro Gaming"
+    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+  <div className="absolute inset-0 flex items-center justify-center">
+    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg transition-transform duration-300 group-hover:scale-110">
+      <PlayCircle className="h-8 w-8" />
     </span>
-  </span>
-  <span className="text-left">
-    <span className="block text-sm font-bold text-white">Voir la vidéo</span>
-    <span className="block text-xs text-slate-400">Découvrez l'application en images</span>
-  </span>
+  </div>
+  <div className="absolute bottom-4 left-4 right-4">
+    <span className="rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+      Vidéo de présentation
+    </span>
+  </div>
 </a>
-              </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
@@ -330,7 +333,7 @@ export default function GuyproGamingLandingPage() {
         </section>
 
         <section className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -363,7 +366,7 @@ export default function GuyproGamingLandingPage() {
             desc="Guypro Gaming regroupe les contenus utiles, les jeux sélectionnés, les guides pratiques et un espace communautaire actif dans une seule expérience mobile fluide et moderne."
           />
 
-          <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -396,7 +399,7 @@ export default function GuyproGamingLandingPage() {
             desc="Vos visiteurs peuvent comprendre en quelques secondes la valeur de Guypro Gaming grâce à une présentation visuelle claire, moderne et rassurante."
           />
 
-          <div className="mt-12 grid md:grid-cols-2 gap-6 xl:gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
             {appShots.map((shot, index) => (
               <motion.div
                 key={shot.title}
@@ -428,7 +431,7 @@ export default function GuyproGamingLandingPage() {
         </section>
 
         <section className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -468,7 +471,7 @@ export default function GuyproGamingLandingPage() {
                 Rejoignez d'autres joueurs pour échanger des conseils, poser vos questions et partager votre expérience
                 autour des jeux mobiles directement dans l'application.
               </p>
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   "Annonces officielles",
                   "Discussions communautaires",
@@ -491,7 +494,7 @@ export default function GuyproGamingLandingPage() {
             desc="Les avis utilisateurs permettent de montrer que l'application est utile, active et réellement appréciée par sa communauté."
           />
 
-          <div className="mt-12 grid lg:grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
               <motion.div
                 key={review.name}
@@ -518,7 +521,7 @@ export default function GuyproGamingLandingPage() {
 
         <section id="securite" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-xl">
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
               <div>
                 <p className="text-cyan-200 text-sm font-semibold uppercase tracking-[0.2em]">Sécurité & transparence</p>
                 <h2 className="mt-4 text-3xl md:text-5xl font-black tracking-tight">
@@ -526,7 +529,7 @@ export default function GuyproGamingLandingPage() {
                 </h2>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {[
                   {
                     title: "Contenu informatif",
