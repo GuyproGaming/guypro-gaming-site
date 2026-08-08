@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Download,
   PlayCircle,
@@ -135,6 +136,44 @@ function GlowOrb({ className = "" }: { className?: string }) {
   return <div className={`absolute rounded-full blur-3xl opacity-30 ${className}`} />;
 }
 
+function FloatingDownloadButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 md:hidden">
+      <AnimatePresence>
+        {visible && (
+          <motion.a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 24 }}
+            transition={{ duration: 0.25 }}
+            className="block"
+          >
+            <Button
+              size="lg"
+              className="w-full rounded-2xl bg-fuchsia-500 text-white hover:bg-fuchsia-400 font-bold text-base py-6 shadow-2xl shadow-fuchsia-950/50"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Télécharger l'application
+            </Button>
+          </motion.a>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function GuyproGamingLandingPage() {
   return (
     <div className="relative min-h-screen w-full max-w-[100vw] overflow-hidden bg-[#050816] text-white">
@@ -149,7 +188,14 @@ export default function GuyproGamingLandingPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <div className="h-11 w-11 rounded-2xl overflow-hidden ring-1 ring-white/15 bg-white/5 shrink-0">
-              <img src="/logo.png" alt="Guypro Gaming" className="h-full w-full object-cover" />
+              <Image
+                src="/logo.png"
+                alt="Guypro Gaming"
+                width={44}
+                height={44}
+                priority
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="min-w-0">
               <p className="text-base md:text-lg font-black tracking-tight truncate">Guypro Gaming</p>
@@ -168,10 +214,11 @@ export default function GuyproGamingLandingPage() {
   href={PLAY_STORE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="hidden sm:inline-flex shrink-0"
+  className="inline-flex shrink-0"
 >
-  <Button className="rounded-2xl bg-white text-slate-950 hover:bg-slate-200 font-semibold">
-    Télécharger l'app
+  <Button className="rounded-2xl bg-white text-slate-950 hover:bg-slate-200 font-semibold px-3 md:px-4">
+    <Download className="h-4 w-4 sm:hidden" />
+    <span className="hidden sm:inline">Télécharger l'app</span>
   </Button>
 </a>
         </div>
@@ -258,10 +305,14 @@ export default function GuyproGamingLandingPage() {
             >
               <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-3 md:p-4 shadow-2xl shadow-fuchsia-950/30 backdrop-blur-xl">
                 <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-fuchsia-500/10 via-transparent to-cyan-400/10" />
-                <img
+                <Image
                   src="/banner.jpg"
                   alt="Bannière Guypro Gaming"
-                  className="relative w-full rounded-[1.5rem] object-cover"
+                  width={1600}
+                  height={781}
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="relative w-full h-auto rounded-[1.5rem] object-cover"
                 />
               </div>
             </motion.div>
@@ -347,10 +398,13 @@ export default function GuyproGamingLandingPage() {
               >
                 <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/5 backdrop-blur-xl">
                   <div className="overflow-hidden">
-                    <img
+                    <Image
                       src={shot.image}
                       alt={shot.title}
-                      className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      width={1000}
+                      height={1779}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                   </div>
                   <div className="p-5 md:p-6">
@@ -563,6 +617,7 @@ export default function GuyproGamingLandingPage() {
     </div>
   </div>
 </footer>
+      <FloatingDownloadButton />
     </div>
   );
 }

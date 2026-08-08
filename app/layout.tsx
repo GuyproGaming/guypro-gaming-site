@@ -62,6 +62,27 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: "Guypro Gaming",
+  description:
+    "Actualités gaming mobile, guides pratiques, jeux compatibles Winlator et communauté active.",
+  url: "https://guyprogaming.app",
+  image: "https://guyprogaming.app/banner.jpg",
+  operatingSystem: "ANDROID",
+  applicationCategory: "GameApplication",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Guypro Gaming",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -72,6 +93,12 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full w-full overflow-x-hidden bg-[#050816] flex flex-col">
   {children}
 </body>
