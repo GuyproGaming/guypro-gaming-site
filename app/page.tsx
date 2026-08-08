@@ -22,6 +22,10 @@ import { Card, CardContent } from "@/components/ui/card";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.guypro.gaming.guypro_gaming";
 
+const YOUTUBE_VIDEO_ID = "tUwcihvrh0M";
+const YOUTUBE_URL = `https://youtu.be/${YOUTUBE_VIDEO_ID}?si=QYSnYAMljdVviTxJ`;
+const YOUTUBE_THUMBNAIL_URL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`;
+
 const appShots = [
   {
     title: "Communauté gaming active",
@@ -267,19 +271,25 @@ export default function GuyproGamingLandingPage() {
   </Button>
 </a>
                 <a
-  href="https://youtu.be/tUwcihvrh0M?si=QYSnYAMljdVviTxJ"
+  href={YOUTUBE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="w-full sm:w-auto"
+  className="group flex w-full items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-2 pr-4 transition-colors hover:bg-white/10 sm:w-auto"
 >
-  <Button
-    size="lg"
-    variant="outline"
-    className="w-full rounded-2xl border-white/15 bg-white/5 hover:bg-white/10 text-white text-base px-6 py-6"
-  >
-    <PlayCircle className="mr-2 h-5 w-5" />
-    Voir les fonctionnalités
-  </Button>
+  <span className="relative h-14 w-24 shrink-0 overflow-hidden rounded-xl bg-black/40">
+    <img
+      src={YOUTUBE_THUMBNAIL_URL}
+      alt="Aperçu vidéo Guypro Gaming"
+      className="h-full w-full object-cover"
+    />
+    <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
+      <PlayCircle className="h-7 w-7 text-white drop-shadow" />
+    </span>
+  </span>
+  <span className="text-left">
+    <span className="block text-sm font-bold text-white">Voir la vidéo</span>
+    <span className="block text-xs text-slate-400">Découvrez l'application en images</span>
+  </span>
 </a>
               </div>
 
