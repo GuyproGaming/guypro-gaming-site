@@ -22,9 +22,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.guypro.gaming.guypro_gaming";
 
-const YOUTUBE_VIDEO_ID = "tUwcihvrh0M";
-const YOUTUBE_URL = `https://youtu.be/${YOUTUBE_VIDEO_ID}?si=QYSnYAMljdVviTxJ`;
-const YOUTUBE_THUMBNAIL_URL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`;
+const YOUTUBE_URL = "https://youtu.be/tUwcihvrh0M?si=QYSnYAMljdVviTxJ";
 
 const appShots = [
   {
@@ -276,23 +274,20 @@ export default function GuyproGamingLandingPage() {
   href={YOUTUBE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="group relative mt-5 block aspect-video w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
+  className="group relative mt-5 flex aspect-video w-full max-w-md items-center overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-[#0d0a24] via-[#130a26] to-[#080b1a] shadow-xl shadow-black/30"
 >
-  <img
-    src={YOUTUBE_THUMBNAIL_URL}
-    alt="Aperçu vidéo Guypro Gaming"
-    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-  <div className="absolute inset-0 flex items-center justify-center">
-    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg transition-transform duration-300 group-hover:scale-110">
-      <PlayCircle className="h-8 w-8" />
+  <div className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-fuchsia-500/25 blur-3xl" />
+  <div className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
+  <div className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:16px_16px]" />
+
+  <div className="relative flex w-full items-center gap-4 px-6">
+    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110">
+      <PlayCircle className="h-7 w-7" />
     </span>
-  </div>
-  <div className="absolute bottom-4 left-4 right-4">
-    <span className="rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-      Vidéo de présentation
-    </span>
+    <div className="text-left">
+      <p className="text-base font-black text-white">Vidéo de présentation</p>
+      <p className="mt-1 text-sm text-slate-400">Découvrez Guypro Gaming en images</p>
+    </div>
   </div>
 </a>
 
