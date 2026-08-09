@@ -22,7 +22,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.guypro.gaming.guypro_gaming";
 
-const YOUTUBE_URL = "https://youtu.be/tUwcihvrh0M?si=QYSnYAMljdVviTxJ";
+const YOUTUBE_VIDEO_ID = "tUwcihvrh0M";
+const YOUTUBE_URL = `https://youtu.be/${YOUTUBE_VIDEO_ID}?si=QYSnYAMljdVviTxJ`;
+const YOUTUBE_THUMBNAIL_URL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
 
 const appShots = [
   {
@@ -276,15 +278,12 @@ export default function GuyproGamingLandingPage() {
   rel="noopener noreferrer"
   className="group relative mt-5 block aspect-video w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
 >
-  <Image
-    src="/winlator.jpg"
-    alt="Aperçu de l'application Guypro Gaming"
-    fill
-    sizes="(min-width: 1024px) 448px, 100vw"
-    style={{ objectPosition: "50% 41%" }}
-    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  <img
+    src={YOUTUBE_THUMBNAIL_URL}
+    alt="Aperçu de la vidéo de présentation Guypro Gaming"
+    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
   />
-  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/55 to-[#050816]/10" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/10" />
 
   <div className="absolute inset-0 flex items-center justify-center">
     <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110">
