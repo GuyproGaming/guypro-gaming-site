@@ -274,20 +274,27 @@ export default function GuyproGamingLandingPage() {
   href={YOUTUBE_URL}
   target="_blank"
   rel="noopener noreferrer"
-  className="group relative mt-5 flex aspect-video w-full max-w-md items-center overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-[#0d0a24] via-[#130a26] to-[#080b1a] shadow-xl shadow-black/30"
+  className="group relative mt-5 block aspect-video w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
 >
-  <div className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-fuchsia-500/25 blur-3xl" />
-  <div className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
-  <div className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle,white_1px,transparent_1px)] [background-size:16px_16px]" />
+  <Image
+    src="/winlator.jpg"
+    alt="Aperçu de l'application Guypro Gaming"
+    fill
+    sizes="(min-width: 1024px) 448px, 100vw"
+    style={{ objectPosition: "50% 41%" }}
+    className="object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/55 to-[#050816]/10" />
 
-  <div className="relative flex w-full items-center gap-4 px-6">
-    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110">
-      <PlayCircle className="h-7 w-7" />
+  <div className="absolute inset-0 flex items-center justify-center">
+    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110">
+      <PlayCircle className="h-8 w-8" />
     </span>
-    <div className="text-left">
-      <p className="text-base font-black text-white">Vidéo de présentation</p>
-      <p className="mt-1 text-sm text-slate-400">Découvrez Guypro Gaming en images</p>
-    </div>
+  </div>
+
+  <div className="absolute bottom-4 left-4 right-4">
+    <p className="text-base font-black text-white">Vidéo de présentation</p>
+    <p className="text-sm text-slate-300">Découvrez Guypro Gaming en images</p>
   </div>
 </a>
 
