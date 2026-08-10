@@ -49,29 +49,6 @@ const appShots = [
   },
 ];
 
-const highlights = [
-  {
-    icon: Sparkles,
-    title: "Guides complets",
-    desc: "Des tutoriels simples et utiles pour mieux profiter de vos jeux mobiles.",
-  },
-  {
-    icon: Gamepad2,
-    title: "Jeux compatibles",
-    desc: "Explorez des catégories organisées selon les plateformes et outils compatibles.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Communauté active",
-    desc: "Discutez, échangez des conseils et retrouvez les annonces importantes.",
-  },
-  {
-    icon: Library,
-    title: "Outils pratiques",
-    desc: "Tout est réuni dans une seule application claire, rapide et agréable à utiliser.",
-  },
-];
-
 const features = [
   {
     icon: MessageCircle,
@@ -184,6 +161,10 @@ export default function GuyproGamingLandingPage() {
       <div className="absolute inset-0 max-w-[100vw] overflow-hidden pointer-events-none">
   <GlowOrb className="top-[-80px] left-[-40px] h-52 w-52 md:left-[-80px] md:h-64 md:w-64 bg-blue-500" />
   <GlowOrb className="top-[180px] right-[-30px] h-52 w-52 md:right-[-60px] md:h-72 md:w-72 bg-fuchsia-500" />
+  <GlowOrb className="top-[22%] right-[-40px] h-48 w-48 md:h-64 md:w-64 bg-cyan-400" />
+  <GlowOrb className="top-[38%] left-[-40px] h-56 w-56 md:h-72 md:w-72 bg-fuchsia-500" />
+  <GlowOrb className="top-[55%] right-[5%] h-52 w-52 md:h-64 md:w-64 bg-blue-500" />
+  <GlowOrb className="top-[72%] left-[-30px] h-48 w-48 md:h-64 md:w-64 bg-cyan-400" />
   <GlowOrb className="bottom-[80px] left-[10%] h-56 w-56 md:h-72 md:w-72 bg-cyan-400" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.12),transparent_30%),radial-gradient(circle_at_center,rgba(217,70,239,0.10),transparent_24%),radial-gradient(circle_at_bottom,rgba(34,211,238,0.10),transparent_24%)]" />
       </div>
@@ -333,34 +314,7 @@ export default function GuyproGamingLandingPage() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ delay: index * 0.06, duration: 0.45 }}
-                >
-                  <Card className="h-full rounded-[1.5rem] border-white/10 bg-white/5 backdrop-blur-xl">
-                    <CardContent className="p-5">
-                      <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-fuchsia-500/15 to-cyan-400/15 border border-white/10 flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-fuchsia-200" />
-                      </div>
-                      <h3 className="mt-4 text-lg font-black">{item.title}</h3>
-                      <p className="mt-2 text-sm text-slate-300 leading-7">{item.desc}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
-
-        <section id="fonctionnalites" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+        <section id="fonctionnalites" className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
           <SectionTitle
             eyebrow="Fonctionnalités"
             title="Une application pensée pour les joueurs mobiles"
@@ -370,6 +324,8 @@ export default function GuyproGamingLandingPage() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
+              const featured = index === 0;
+              const cyan = index % 2 === 1;
               return (
                 <motion.div
                   key={feature.title}
@@ -377,14 +333,33 @@ export default function GuyproGamingLandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.06, duration: 0.5 }}
+                  className={featured ? "md:col-span-2" : undefined}
                 >
-                  <Card className="h-full rounded-[1.75rem] border-white/10 bg-white/5 backdrop-blur-xl shadow-xl shadow-black/10">
-                    <CardContent className="p-6">
-                      <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-fuchsia-500/20 to-cyan-400/15 border border-white/10 flex items-center justify-center">
-                        <Icon className="h-7 w-7 text-fuchsia-200" />
+                  <Card
+                    className={`relative h-full overflow-hidden rounded-[1.75rem] border-white/10 backdrop-blur-xl shadow-xl shadow-black/10 ${
+                      featured
+                        ? "bg-gradient-to-br from-fuchsia-500/15 via-white/5 to-cyan-400/10"
+                        : "bg-white/5"
+                    }`}
+                  >
+                    <CardContent className={featured ? "p-6 md:p-8" : "p-6"}>
+                      <div
+                        className={`flex items-center justify-center rounded-2xl border border-white/10 ${
+                          featured ? "h-16 w-16" : "h-14 w-14"
+                        } ${
+                          cyan
+                            ? "bg-gradient-to-br from-cyan-400/20 to-fuchsia-500/10"
+                            : "bg-gradient-to-br from-fuchsia-500/20 to-cyan-400/15"
+                        }`}
+                      >
+                        <Icon className={`${featured ? "h-8 w-8" : "h-7 w-7"} ${cyan ? "text-cyan-200" : "text-fuchsia-200"}`} />
                       </div>
-                      <h3 className="mt-5 text-xl font-black">{feature.title}</h3>
-                      <p className="mt-3 text-slate-300 leading-7">{feature.desc}</p>
+                      <h3 className={featured ? "mt-6 text-2xl font-black" : "mt-5 text-xl font-black"}>
+                        {feature.title}
+                      </h3>
+                      <p className={featured ? "mt-3 max-w-md text-slate-300 leading-7" : "mt-3 text-slate-300 leading-7"}>
+                        {feature.desc}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -393,7 +368,7 @@ export default function GuyproGamingLandingPage() {
           </div>
         </section>
 
-        <section id="captures" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+        <section id="captures" className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
           <SectionTitle
             eyebrow="Captures d'écran"
             title="Découvrez l'application avant même l'installation"
@@ -416,7 +391,7 @@ export default function GuyproGamingLandingPage() {
                       src={shot.image}
                       alt={shot.title}
                       width={1000}
-                      height={1779}
+                      height={1370}
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
@@ -431,7 +406,7 @@ export default function GuyproGamingLandingPage() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+        <section className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
@@ -488,39 +463,41 @@ export default function GuyproGamingLandingPage() {
           </div>
         </section>
 
-        <section id="avis" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
-          <SectionTitle
-            eyebrow="Avis"
-            title="Des retours qui rassurent les nouveaux visiteurs"
-            desc="Les avis utilisateurs permettent de montrer que l'application est utile, active et réellement appréciée par sa communauté."
-          />
+        <section id="avis" className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+          <div className="rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 md:p-12">
+            <SectionTitle
+              eyebrow="Avis"
+              title="Des retours qui rassurent les nouveaux visiteurs"
+              desc="Les avis utilisateurs permettent de montrer que l'application est utile, active et réellement appréciée par sa communauté."
+            />
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {reviews.map((review, index) => (
-              <motion.div
-                key={review.name}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.08, duration: 0.5 }}
-              >
-                <Card className="h-full rounded-[1.8rem] border-white/10 bg-white/5 backdrop-blur-xl">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="mt-5 text-slate-200 leading-8">“{review.text}”</p>
-                    <p className="mt-6 font-bold text-white">{review.name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {reviews.map((review, index) => (
+                <motion.div
+                  key={review.name}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: index * 0.08, duration: 0.5 }}
+                >
+                  <Card className="h-full rounded-[1.8rem] border-white/10 bg-white/5 backdrop-blur-xl">
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-1 text-amber-400">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-current" />
+                        ))}
+                      </div>
+                      <p className="mt-5 text-slate-200 leading-8">“{review.text}”</p>
+                      <p className="mt-6 font-bold text-white">{review.name}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="securite" className="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-28">
+        <section id="securite" className="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-xl">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
               <div>
