@@ -105,18 +105,31 @@ const features = [
   },
 ];
 
+// Avis réels publiés sur Google Play, recopiés tels quels.
 const reviews = [
   {
-    name: "Ama Kita",
-    text: "Application très utile pour découvrir des jeux et retrouver facilement les infos importantes.",
+    name: "Prinqui",
+    rating: 5,
+    date: "27/05/2026",
+    text: "Merci bro tu a fait une tuerie la meilleure application pour nous les gamer mobile j'ai juste un remarque il faudrait a plus de jeux mais je crois en toi je suivie tout tes vidéos youtube et jusqu'à présent tu ne ma pas déçu je vais proposer a mais pote cette App pour qui puisse en profiter comme moi force toi j'attends avec impatiente les prochains misé à jour encore bravo",
   },
   {
-    name: "Roland K.",
-    text: "Le classement par catégories est propre et les fiches détaillées rendent l'expérience vraiment pratique.",
+    name: "Ousseynou Ndiaye",
+    rating: 5,
+    date: "06/09/2026",
+    text: "Merci guypro meilleurs aplication du monde mais Si on améliorer FC 26 sur gamehub sa serait super 👍",
   },
   {
-    name: "Sarah M.",
-    text: "J'aime beaucoup l'ambiance gaming moderne et l'espace discussion avec la communauté.",
+    name: "Neox Utena",
+    rating: 4,
+    date: "23/05/2026",
+    text: "super application j'adore vraiment tu peux facilement télécharger des jeux sans difficulté 😁 le problème c qu'il à beaucoup des pub sa énerve",
+  },
+  {
+    name: "Kouadio Samuel",
+    rating: 5,
+    date: "17/10/2026",
+    text: "très bon super même vener télécharger le site c'est trop Bon les gars",
   },
 ];
 
@@ -358,7 +371,7 @@ export default function GuyproGamingLandingPage() {
                 Game Lab analyse votre téléphone
               </a>
 
-              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[0.98]">
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.02]">
                 Les meilleurs jeux
                 <span className="block bg-gradient-to-r from-white via-fuchsia-200 to-blue-300 bg-clip-text text-transparent">
                   pour votre téléphone
@@ -382,22 +395,24 @@ export default function GuyproGamingLandingPage() {
                 href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative mt-8 flex items-center gap-4 w-full max-w-md overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-2 pr-4 hover:bg-white/10 transition-colors"
+                className="group relative mt-8 block aspect-video w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/30"
               >
-                <div className="relative aspect-video w-32 sm:w-40 shrink-0 overflow-hidden rounded-xl">
-                  <img
-                    src={YOUTUBE_THUMBNAIL_URL}
-                    alt="Aperçu de la vidéo de présentation Guypro Gaming"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/30" />
-                  <span className="absolute inset-0 flex items-center justify-center">
-                    <PlayCircle className="h-9 w-9 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110" />
+                <img
+                  src={YOUTUBE_THUMBNAIL_URL}
+                  alt="Aperçu de la vidéo de présentation Guypro Gaming"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/10" />
+
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-slate-950 shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110">
+                    <PlayCircle className="h-8 w-8" />
                   </span>
                 </div>
-                <div className="min-w-0">
+
+                <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-base font-black text-white">Vidéo de présentation</p>
-                  <p className="text-sm text-slate-400">Découvrez Guypro Gaming en images</p>
+                  <p className="text-sm text-slate-300">Découvrez Guypro Gaming en images</p>
                 </div>
               </a>
             </motion.div>
@@ -659,10 +674,10 @@ export default function GuyproGamingLandingPage() {
             <SectionTitle
               eyebrow="Avis"
               title="Ce qu'en disent les joueurs"
-              desc="Quelques retours de membres de la communauté Guypro Gaming."
+              desc="Des avis réels laissés par les joueurs sur Google Play."
             />
 
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="mt-12 gap-6 md:columns-2 [&>*]:mb-6">
               {reviews.map((review, index) => (
                 <motion.div
                   key={review.name}
@@ -670,16 +685,31 @@ export default function GuyproGamingLandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.08, duration: 0.5 }}
+                  className="break-inside-avoid"
                 >
-                  <Card className="h-full rounded-[1.8rem] border-white/10 bg-white/5 backdrop-blur-xl">
+                  <Card className="rounded-[1.8rem] border-white/10 bg-white/5 text-white backdrop-blur-xl">
                     <CardContent className="p-6">
-                      <div className="flex items-center gap-1 text-amber-400">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-current" />
-                        ))}
+                      <div className="flex items-center gap-3">
+                        <div className="h-11 w-11 shrink-0 rounded-full bg-gradient-to-br from-fuchsia-500 to-blue-500 flex items-center justify-center font-black">
+                          {review.name.charAt(0)}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-bold text-white truncate">{review.name}</p>
+                          <div className="mt-0.5 flex items-center gap-2">
+                            <div className="flex items-center gap-0.5" aria-label={`${review.rating} étoiles sur 5`}>
+                              {Array.from({ length: 5 }).map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`h-4 w-4 ${i < review.rating ? "fill-amber-400 text-amber-400" : "text-slate-600"}`}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-xs text-slate-400">{review.date}</span>
+                          </div>
+                        </div>
                       </div>
-                      <p className="mt-5 text-slate-200 leading-8">“{review.text}”</p>
-                      <p className="mt-6 font-bold text-white">{review.name}</p>
+                      <p className="mt-5 text-slate-200 leading-7">“{review.text}”</p>
+                      <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Avis Google Play</p>
                     </CardContent>
                   </Card>
                 </motion.div>
